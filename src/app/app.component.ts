@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Employee } from './employee';
 import { EmployeeService } from './employee.service';
 
@@ -8,10 +8,13 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'employeemanagerapp';
   public employees: Employee[] = [];
 
+ngOnInit(): void {
+  this.getEmployees();
+}
 
   constructor(private employee: EmployeeService) { }
 
